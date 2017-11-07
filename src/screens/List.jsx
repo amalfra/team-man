@@ -28,8 +28,8 @@ class ListScreen extends React.Component {
               </Header>
               <br />
               <Divider />
-              <Item.Group divided>
-                <Item>
+              <Item.Group divided link>
+                <Item as={NavLink} to='/edit/1'>
                   <Item.Image avatar size='tiny' src='/assets/daniel.jpg' />
 
                   <Item.Content style={{ textAlign: 'left' }}>
@@ -42,7 +42,7 @@ class ListScreen extends React.Component {
                     </Item.Meta>
                   </Item.Content>
                 </Item>
-                <Item>
+                <Item as={NavLink} to='/edit/2'>
                   <Item.Image avatar size='tiny' src='/assets/daniel.jpg' />
 
                   <Item.Content style={{ textAlign: 'left' }}>
