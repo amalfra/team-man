@@ -8,9 +8,9 @@ import EditScreen from './screens/Edit';
 const Router = () => (
   <BrowserRouter>
     <Switch>
-      <Route path='/' component={ListScreen} />
       <Route path='/add' component={AddScreen} />
       <Route path='/edit/:id' component={EditScreen} />
+      <Route path='/' component={ListScreen} />
     </Switch>
   </BrowserRouter>
 );
