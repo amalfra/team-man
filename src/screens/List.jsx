@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Label } from 'semantic-ui-react';
+import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Label, Message } from 'semantic-ui-react';
 
 const ListScreen = (props) => {
   return <section id='list-screen'>
@@ -22,34 +22,32 @@ const ListScreen = (props) => {
           </Header>
           <br />
           <Divider />
-          <Item.Group divided link>
-            <Item as={NavLink} to='/edit/1'>
-              <Item.Image avatar size='tiny' src='/assets/daniel.jpg' />
+          {props.members.length > 0 ? (
+              <Item.Group divided link>
+                {props.members.map(function(member, index) {
+                  return <Item as={NavLink} to={'/edit/' + index} key={'member-' + index}>
+                    <Item.Image avatar size='tiny' src='/assets/daniel.jpg' />
 
-              <Item.Content style={{ textAlign: 'left' }}>
-                <Item.Header>Name 1</Item.Header>
-                <Item.Meta>
-                  <List>
-                    <List.Item>123-456-789</List.Item>
-                    <List.Item>test@test.com</List.Item>
-                  </List>
-                </Item.Meta>
-              </Item.Content>
-            </Item>
-            <Item as={NavLink} to='/edit/2'>
-              <Item.Image avatar size='tiny' src='/assets/daniel.jpg' />
-
-              <Item.Content style={{ textAlign: 'left' }}>
-                <Item.Header>Name 2</Item.Header>
-                <Item.Meta>
-                  <List>
-                    <List.Item>123-456-789</List.Item>
-                    <List.Item>test@test.com</List.Item>
-                  </List>
-                </Item.Meta>
-              </Item.Content>
-            </Item>
-          </Item.Group>
+                    <Item.Content style={{ textAlign: 'left' }}>
+                      <Item.Header>{member.firstname} {member.lastname}
+                        {member.role == 1 ? (<i> (admin)</i>) : null}</Item.Header>
+                      <Item.Meta>
+                        <List>
+                          <List.Item>{member.phone}</List.Item>
+                          <List.Item>{member.email}</List.Item>
+                        </List>
+                      </Item.Meta>
+                    </Item.Content>
+                  </Item>
+                })}
+              </Item.Group>
+            ) : (
+              <Message info>
+                <Message.Header>Your team has no members</Message.Header>
+                <p>Now is a good time to add members to your team. Hit the plus button on top and start strengthening your team!</p>
+              </Message>
+            )
+          }
         </Segment>
       </Grid.Column>
     </Grid>

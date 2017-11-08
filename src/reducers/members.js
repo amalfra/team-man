@@ -1,5 +1,11 @@
 const members = (state = [], action) => {
-  return state;
+  switch(action.type) {
+    case 'ADD':
+      state.push(action.member);
+      return state;
+    default:
+      return state;
+  };
 };
 
 export default members;

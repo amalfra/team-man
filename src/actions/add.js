@@ -1,13 +1,6 @@
-export function increase(n) {
+export function add(m) {
   return {
-    type: 'INCREASE',
-    amount: n
-  }
-};
-
-export function decrease(n) {
-  return {
-    type: 'DECREASE',
-    amount: n
+    type: 'ADD',
+    member: m
   }
 };

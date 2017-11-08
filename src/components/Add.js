@@ -1,17 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 
 import AddScreen from '../screens/Add';
-import { increase, decrease } from '../actions/add'
+import { add as addAction } from '../actions/add'
 
 class AddComponent extends React.Component {
-  componentDidMount() {
-    this.props.increase()
+  submitHandler(values, dispatch) {
+    dispatch(addAction(values));
+    return dispatch(push('/'));
   }
 
   render() {
     return (
-      <AddScreen members={this.props.members} />
+      <AddScreen members={this.props.members} onSubmit={this.submitHandler} />
     );
   }
 };
@@ -23,8 +25,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  increase,
-  decrease
+  addAction
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddComponent);
