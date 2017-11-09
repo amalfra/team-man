@@ -6,26 +6,29 @@ import AddScreen from '../screens/add';
 import { add as addAction } from '../actions/add'
 
 class AddComponent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.submitHandler = this.submitHandler.bind(this);
+  }
+
   submitHandler(values, dispatch) {
-    dispatch(addAction(values));
-    return dispatch(push('/'));
+    this.props.dispatchAddAction(values);
+    return this.props.push('/');
   }
 
   render() {
     return (
-      <AddScreen members={this.props.members} onSubmit={this.submitHandler} />
+      <AddScreen onSubmit={this.submitHandler} />
     );
   }
 };
 
-const mapStateToProps = (state) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    members : state.members
-  };
+    dispatchAddAction: (member) => dispatch(addAction(member)),
+    push: (path) => dispatch(push(path))
+  }
 };
 
-const mapDispatchToProps = {
-  addAction
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddComponent);
+export default connect(null, mapDispatchToProps)(AddComponent);

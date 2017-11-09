@@ -20,8 +20,8 @@ class EditComponent extends React.Component {
   }
 
   submitHandler(values, dispatch) {
-    dispatch(editAction(this.props.id, values));
-    return dispatch(push('/'));
+    this.props.dispatchEditAction(this.props.id, values);
+    return this.props.push('/');
   }
 
   render() {
@@ -42,7 +42,7 @@ const mapStateToProps = (state, ownParams) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatchRemoveAction: (id) => dispatch(removeAction(id)),
-    dispatchEditAction: (id) => dispatch(editAction(id, member)),
+    dispatchEditAction: (id, member) => dispatch(editAction(id, member)),
     push: (path) => dispatch(push(path))
   }
 };

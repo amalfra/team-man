@@ -1,4 +1,4 @@
-export function edit(id, m) {
+export const edit = (id, m) => {
   return {
     type: 'EDIT',
     id: id,
