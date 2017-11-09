@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Label, Form } from 'semantic-ui-react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 
-const EditScreen = (props) => {
-  const { handleDelete } = props;
+import { validate, renderField } from './formUtils';
+
+let EditScreen = (props) => {
+  const { handleDelete, handleSubmit, member } = props;
 
   return <section id='edit-screen'>
     <Grid
@@ -11,63 +15,77 @@ const EditScreen = (props) => {
         style={{ height: '100%' }}
         verticalAlign='middle'
     >
-        <Grid.Column largeScreen='8' widescreen='8' mobile='16'>
+      <Grid.Column largeScreen='8' widescreen='8' mobile='16'>
         <Segment padded>
-            <NavLink to="/">
+          <NavLink to="/">
             <Button circular icon color='blue' floated='right'>
                 <Icon name='close' />
             </Button>
-            </NavLink>
-            <Header textAlign='left' as='h1'>
-            Edit team member
-            <Header.Subheader>Edit contact info, location and role</Header.Subheader>
-            </Header>
-            <br />
-            <Divider />
-            <Form>
+          </NavLink>
+          <Header textAlign='left' as='h1'>
+          Edit team member
+          <Header.Subheader>Edit contact info, location and role</Header.Subheader>
+          </Header>
+          <br />
+          <Divider />
+          <Form onSubmit={handleSubmit}>
             <Header textAlign='left' as='h3'>Info</Header>
             <Form.Field>
-                <input type='text' placeholder='Firstname' />
+              <Field name='firstname' component={renderField} placeholder='Firstname' type='text' />
             </Form.Field>
             <Form.Field>
-                <input type='text' placeholder='Lastname' />
+              <Field name='lastname' component={renderField} placeholder='Lastname' type='text' />
             </Form.Field>
             <Form.Field>
-                <input type='email' placeholder='Email' />
+              <Field name='email' component={renderField} placeholder='Email' type='email' />
             </Form.Field>
             <Form.Field>
-                <input type='text' placeholder='Phone' />
+              <Field name='phone' component={renderField} placeholder='Phone' type='text' />
             </Form.Field>
             <Header textAlign='left' as='h3'>Role</Header>
             <Form.Field>
-                <List divided verticalAlign='middle' size='large'>
+              <List divided verticalAlign='middle' size='large'>
                 <List.Item>
-                    <List.Content floated='right'>
-                    <Form.Radio name='role' value='1' />
-                    </List.Content>
-                    <List.Content style={{ textAlign: 'left' }}>
+                  <List.Content floated='right'>
+                    <Field name='role' component={renderField} type='radio' value='2' />
+                  </List.Content>
+                  <List.Content style={{ textAlign: 'left' }}>
                     Regular - Can't delete members
-                    </List.Content>
+                  </List.Content>
                 </List.Item>
                 <List.Item>
-                    <List.Content floated='right'>
-                    <Form.Radio name='role' value='0' />
-                    </List.Content>
-                    <List.Content style={{ textAlign: 'left' }}>
+                  <List.Content floated='right'>
+                    <Field name='role' component={renderField} type='radio' value='1' />
+                  </List.Content>
+                  <List.Content style={{ textAlign: 'left' }}>
                     Admin - Can delete members
-                    </List.Content>
+                  </List.Content>
                 </List.Item>
-                </List>
+              </List>
             </Form.Field>
             <Divider />
             <Button negative floated='left' onClick={handleDelete}>Delete</Button>
             <Button primary floated='right'>Save</Button>
             <br /><br />
-            </Form>
+          </Form>
         </Segment>
-        </Grid.Column>
+      </Grid.Column>
     </Grid>
   </section>;
 };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    initialValues: ownProps.member
+  };
+};
+
+EditScreen = reduxForm({
+  form: 'edit-member',
+  enableReinitialize: true,
+  validate
+})(EditScreen);
+
+EditScreen = connect(mapStateToProps)(EditScreen);
 
 export default EditScreen;

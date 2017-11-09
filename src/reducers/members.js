@@ -6,6 +6,9 @@ const members = (state = [], action) => {
     case 'REMOVE':
       state.splice(action.id, 1);
       return state;
+    case 'EDIT':
+      state[action.id] = action.member;
+      return state;
     default:
       return state;
   };

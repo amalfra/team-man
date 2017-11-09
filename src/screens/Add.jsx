@@ -3,39 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Label, Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 
-const validate = (values) => {
-  const errors = {}
-  if (!values.firstname) {
-    errors.firstname = 'Required'
-  } else if (values.firstname.length < 2) {
-    errors.firstname = 'Minimum be 2 characters or more'
-  }
-  if (!values.lastname) {
-    errors.lastname = 'Required'
-  } else if (values.lastname.length < 2) {
-    errors.lastname = 'Minimum be 2 characters or more'
-  }
-
-  if (!values.email) {
-    errors.email = 'Required'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
-  }
-  if (!values.phone) {
-    errors.phone = 'Required'
-  }
-  if (!values.role) {
-    errors.role = 'Required'
-  }
-  return errors
-};
-
-const renderField = ({input, placeholder, type, meta: {touched, error, warning}}) => (
-  <div>
-    <input {...input} placeholder={placeholder} type={type} />
-    {touched && ((error && <span className="text-danger">{error}</span>))}
-  </div>
-)
+import { validate, renderField } from './formUtils';
 
 let AddScreen = (props) => {
   const { handleSubmit } = props;
@@ -107,7 +75,7 @@ let AddScreen = (props) => {
 AddScreen = reduxForm({
   form: 'add-member',
   validate,
-  initialValues: {role: 2}
+  initialValues: {role: '2'}
 })(AddScreen);
 
 export default AddScreen;

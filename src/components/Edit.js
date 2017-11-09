@@ -4,6 +4,7 @@ import { push } from 'react-router-redux';
 
 import EditScreen from '../screens/Edit';
 import { remove as removeAction } from '../actions/remove';
+import { edit as editAction } from '../actions/edit';
 
 class EditComponent extends React.Component {
   constructor(props) {
@@ -17,23 +18,30 @@ class EditComponent extends React.Component {
     return this.props.push('/');
   }
 
+  submitHandler(values, dispatch) {
+    dispatch(editAction(this.props.id, values));
+    return dispatch(push('/'));
+  }
+
   render() {
     return (
-      <EditScreen members={this.props.members} handleDelete={this.deleteHandler} />
+      <EditScreen member={this.props.member} handleDelete={this.deleteHandler} onSubmit={this.submitHandler} />
     );
   }
 };
 
 const mapStateToProps = (state, ownParams) => {
+  let memId = ownParams.match.params.id;
   return {
-    members : state.members,
-    id: ownParams.match.params.id
+    member : state.members[memId],
+    id: memId
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     dispatchRemoveAction: (id) => dispatch(removeAction(id)),
+    dispatchEditAction: (id) => dispatch(editAction(id, member)),
     push: (path) => dispatch(push(path))
   }
 };
