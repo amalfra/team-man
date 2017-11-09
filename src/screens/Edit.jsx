@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Label, Form } from 'semantic-ui-react';
 
 const EditScreen = (props) => {
+  const { handleDelete } = props;
+
   return <section id='edit-screen'>
     <Grid
         textAlign='center'
@@ -58,7 +60,7 @@ const EditScreen = (props) => {
                 </List>
             </Form.Field>
             <Divider />
-            <Button negative floated='left'>Delete</Button>
+            <Button negative floated='left' onClick={handleDelete}>Delete</Button>
             <Button primary floated='right'>Save</Button>
             <br /><br />
             </Form>
