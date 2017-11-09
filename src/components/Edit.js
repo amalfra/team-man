@@ -11,6 +11,7 @@ class EditComponent extends React.Component {
     super(props);
 
     this.deleteHandler = this.deleteHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   deleteHandler() {
