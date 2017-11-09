@@ -5,3 +5,7 @@ body {
 #app {
   margin: 50px 20px;
 }
+
+.text-danger {
+  color: red;
+}

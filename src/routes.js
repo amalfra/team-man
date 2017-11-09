@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 
-import ListComponent from './components/List';
-import AddComponent from './components/Add';
-import EditComponent from './components/Edit';
+import ListComponent from './components/list';
+import AddComponent from './components/add';
+import EditComponent from './components/edit';
 
 const Routes = (
   <Switch>

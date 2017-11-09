@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
-import AddScreen from '../screens/Add';
+import AddScreen from '../screens/add';
 import { add as addAction } from '../actions/add'
 
 class AddComponent extends React.Component {

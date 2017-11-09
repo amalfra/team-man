@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
-import EditScreen from '../screens/Edit';
+import EditScreen from '../screens/edit';
 import { remove as removeAction } from '../actions/remove';
 import { edit as editAction } from '../actions/edit';
 
