@@ -18,7 +18,7 @@ const ListScreen = (props) => {
           </NavLink>
           <Header textAlign='left' as='h1'>
             Team members
-            <Header.Subheader>You have {props.members.length} team members</Header.Subheader>
+            <Header.Subheader>You have {props.members.length} team member{props.members.length != 1 ? 's' : null}</Header.Subheader>
           </Header>
           <br />
           <Divider />

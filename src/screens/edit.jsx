@@ -46,19 +46,13 @@ let EditScreen = (props) => {
             <Form.Field>
               <List divided verticalAlign='middle' size='large'>
                 <List.Item>
-                  <List.Content floated='right'>
-                    <Field name='role' component={renderField} type='radio' value='2' />
-                  </List.Content>
-                  <List.Content style={{ textAlign: 'left' }}>
-                    Regular - Can't delete members
+                  <List.Content>
+                    <Field name='role' label="Regular - Can't delete members" component={renderField} type='radio' value='2' />
                   </List.Content>
                 </List.Item>
                 <List.Item>
-                  <List.Content floated='right'>
-                    <Field name='role' component={renderField} type='radio' value='1' />
-                  </List.Content>
-                  <List.Content style={{ textAlign: 'left' }}>
-                    Admin - Can delete members
+                  <List.Content>
+                    <Field name='role' label="Admin - Can delete members" component={renderField} type='radio' value='1' />
                   </List.Content>
                 </List.Item>
               </List>
