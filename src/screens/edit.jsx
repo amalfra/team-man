@@ -58,7 +58,7 @@ let EditScreen = (props) => {
               </List>
             </Form.Field>
             <Divider />
-            <Button negative floated='left' onClick={handleDelete}>Delete</Button>
+            <Button type='button' negative floated='left' onClick={handleDelete}>Delete</Button>
             <Button primary floated='right'>Save</Button>
             <br /><br />
           </Form>
