@@ -1,0 +1,11 @@
+body {
+  background: #fdfafa;
+}
+
+#app {
+  margin: 50px 20px;
+}
+
+.text-danger {
+  color: red;
+}
