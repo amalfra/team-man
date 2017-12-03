@@ -47,7 +47,7 @@
     "webpack-dev-server": "^2.9.4"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server --open"
+    "build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/webpack-dev-server --open"
   }
 }
