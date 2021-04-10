@@ -4,6 +4,9 @@
   "author": "Amal Francis <amalfra@gmail.com>",
   "description": "A simple frontend ​only team-member ​management ​application ​that ​allows ​the user ​to ​view, ​edit, ​add ​and ​delete ​team ​members",
   "license": "MIT",
+  "engines": {
+    "node": ">=10.12.0"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:amalfra/team-man.git"
