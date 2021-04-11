@@ -27,13 +27,13 @@ export const validate = (values) => {
   return errors
 };
 
-export const renderField = ({input, placeholder, type, label, meta: {touched, error, warning}}) => (
+export const renderField = ({ input, placeholder, type, label, meta: {touched, error }}) => (
   <div>
     { 
       type == 'radio' ? (
         <label>
-          <div className='left floated'>{label}</div>
-          <input {...input} type='radio' className='right floated' />
+          <div className="left floated">{label}</div>
+          <input {...input} type="radio" className="right floated" />
         </label>
       ) : (
         <input {...input} placeholder={placeholder} type={type} />

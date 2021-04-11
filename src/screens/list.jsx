@@ -1,33 +1,32 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Label, Message } from 'semantic-ui-react';
+import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Message } from 'semantic-ui-react';
 
-const ListScreen = (props) => {
-  return <section id='list-screen'>
+const ListScreen = ({ members }) => (
+  <section id="list-screen">
     <Grid
-      textAlign='center'
+      textAlign="center"
       style={{ height: '100%' }}
-      verticalAlign='middle'
+      verticalAlign="middle"
     >
-      <Grid.Column largeScreen='8' widescreen='8' mobile='16'>
+      <Grid.Column largeScreen="8" widescreen="8" mobile="16">
         <Segment padded>
           <NavLink to="/add">
-            <Button circular icon color='blue' floated='right'>
-              <Icon name='add' />
+            <Button circular icon color="blue" floated="right">
+              <Icon name="add" />
             </Button>
           </NavLink>
-          <Header textAlign='left' as='h1'>
+          <Header textAlign="left" as="h1">
             Team members
-            <Header.Subheader>You have {props.members.length} team member{props.members.length != 1 ? 's' : null}</Header.Subheader>
+            <Header.Subheader>You have {members.length} team member{members.length != 1 ? 's' : null}</Header.Subheader>
           </Header>
           <br />
           <Divider />
-          {props.members.length > 0 ? (
+          {members.length > 0 ? (
               <Item.Group divided link>
-                {props.members.map(function(member, index) {
-                  return <Item as={NavLink} to={'/edit/' + index} key={'member-' + index}>
-                    <Item.Image avatar size='tiny' src='/assets/daniel.jpg' />
-
+                {members.map((member, index) => (
+                  <Item as={NavLink} to={'/edit/' + index} key={'member-' + index}>
+                    <Item.Image avatar size="tiny" src="/assets/daniel.jpg" />
                     <Item.Content style={{ textAlign: 'left' }}>
                       <Item.Header>{member.firstname} {member.lastname}
                         {member.role == 1 ? (<i> (admin)</i>) : null}</Item.Header>
@@ -39,7 +38,7 @@ const ListScreen = (props) => {
                       </Item.Meta>
                     </Item.Content>
                   </Item>
-                })}
+                ))}
               </Item.Group>
             ) : (
               <Message info>
@@ -51,7 +50,7 @@ const ListScreen = (props) => {
         </Segment>
       </Grid.Column>
     </Grid>
-  </section>;
-};
+  </section>
+);
 
 export default ListScreen;
