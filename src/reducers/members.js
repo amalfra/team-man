@@ -1,17 +1,19 @@
 const members = (state = [], action) => {
-  switch(action.type) {
+  const newState = [ ...state ];
+
+  switch (action.type) {
     case 'ADD':
-      state.push(action.member);
-      return state;
+      newState.push(action.member);
+      return newState;
     case 'REMOVE':
-      state.splice(action.id, 1);
-      return state;
+      newState.splice(action.id, 1);
+      return newState;
     case 'EDIT':
-      state[action.id] = action.member;
-      return state;
+      newState[action.id] = action.member;
+      return newState;
     default:
-      return state;
-  };
+      return newState;
+  }
 };
 
 export default members;

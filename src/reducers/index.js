@@ -7,5 +7,5 @@ import members from './members';
 export default combineReducers({
   members,
   routing: routerReducer,
-  form: formReducer
+  form: formReducer,
 });

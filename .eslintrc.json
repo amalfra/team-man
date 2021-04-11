@@ -1,13 +1,15 @@
 {
-  "parser": "@babel/eslint-parser",
+  "extends": "airbnb",
   "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 6
+    "ecmaVersion": 8
   },
   "env": {
-    "mocha": true
+    "mocha": true,
+    "es6": true,
+    "browser": true
   },
-  "extends": "strongloop",
+  "plugins": ["babel"],
+  "parser": "@babel/eslint-parser",
   "rules": {
     "max-len": [2, 120]
   }

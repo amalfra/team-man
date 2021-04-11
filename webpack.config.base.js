@@ -1,7 +1,7 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const outputPath = '/dist/'
+const outputPath = '/dist/';
 
 module.exports = {
   entry: './src/app',
@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'url-loader',
-      }
+      },
     ],
   },
   resolve: {
@@ -38,5 +38,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'style.css',
     }),
-  ]
-}
+  ],
+};

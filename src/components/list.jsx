@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ListScreen from '../screens/list';
 
-const ListComponent = ({members}) => (
+const ListComponent = ({ members }) => (
   <ListScreen members={members} />
 );
 

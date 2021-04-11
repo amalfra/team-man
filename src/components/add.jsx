@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
 import AddScreen from '../screens/add';
-import { add as addAction } from '../actions/add'
+import addAction from '../actions/add';
 
 class AddComponent extends React.Component {
   state = {

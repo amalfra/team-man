@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 
 import EditScreen from '../screens/edit';
-import { remove as removeAction } from '../actions/remove';
-import { edit as editAction } from '../actions/edit';
+import removeAction from '../actions/remove';
+import editAction from '../actions/edit';
 
 class EditComponent extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class EditComponent extends React.Component {
 };
 
 const mapStateToProps = (state, { match: { params: { id }}}) => ({
-  member : state.members[id],
+  member: state.members[id],
   id,
 });
 

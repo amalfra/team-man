@@ -1,4 +1,6 @@
-export const add = (member) => ({
+const add = (member) => ({
   type: 'ADD',
   member,
 });
+
+export default add;
