@@ -24,6 +24,7 @@
   ],
   "private": true,
   "dependencies": {
+    "core-js": "^3.10.1",
     "history": "^4.7.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -57,6 +58,6 @@
     "pretest": "eslint --ignore-path .gitignore .",
     "test": "mocha ./*.test.js",
     "build": "webpack",
-    "start": "webpack-dev-server --open"
+    "start": "webpack serve --progress"
   }
 }

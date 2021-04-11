@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, Switch } from 'react-router';
+import React from 'react'
+import { Route, Switch } from 'react-router'
 
-import ListComponent from './components/list';
-import AddComponent from './components/add';
-import EditComponent from './components/edit';
+import ListComponent from './components/list'
+import AddComponent from './components/add'
+import EditComponent from './components/edit'
 
 const Routes = (
   <Switch>
@@ -11,6 +11,6 @@ const Routes = (
     <Route path='/edit/:id' component={EditComponent} />
     <Route path='/' component={ListComponent} />
   </Switch>
-);
+)
 
-export default Routes;
+export default Routes
