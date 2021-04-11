@@ -1,7 +1,5 @@
-export const edit = (id, m) => {
-  return {
-    type: 'EDIT',
-    id: id,
-    member: m
-  }
-};
+export const edit = (id, member) => ({
+  type: 'EDIT',
+  id,
+  member,
+});

@@ -1,6 +1,4 @@
-export const add = (m) => {
-  return {
-    type: 'ADD',
-    member: m
-  }
-};
+export const add = (member) => ({
+  type: 'ADD',
+  member,
+});

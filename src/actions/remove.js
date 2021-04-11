@@ -1,6 +1,4 @@
-export const remove = (id) => {
-  return {
-    type: 'REMOVE',
-    id: id
-  }
-};
+export const remove = (id) => ({
+  type: 'REMOVE',
+  id,
+});
