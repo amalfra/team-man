@@ -6,9 +6,13 @@
   "env": {
     "mocha": true,
     "es6": true,
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
-  "plugins": ["babel"],
+  "plugins": [
+    "babel",
+    "jest"
+  ],
   "parser": "@babel/eslint-parser",
   "rules": {
     "max-len": [2, 120]
