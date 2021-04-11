@@ -11,7 +11,7 @@ Team man
 
 ## Usage
 * First run ```npm install``` to setup required dependencies.
-* Then run ```npm run start```. This will compile and concat ES6 js file and open a browser window to use the app
+* Then run ```npm run start:dev``` or ```npm run start:prod```. This will compile and concat ES6 js file and start static serving server for the app.
 
 The code is written in simplest way without much bloat so that even begineers can easily understand. This might not probably be the best structure/organization of files for large projects but could possibly help begineers of react and redux to get started without much searching and referring multiple tutorials. 
 
