@@ -1,5 +1,7 @@
 Team man
 ========
+[![Build Status](https://travis-ci.org/amalfra/team-man.svg?branch=master)](https://travis-ci.org/amalfra/team-man)
+
 ​A ​simple frontend ​only ​team-member ​management ​application in reactjs built using redux, redux-form and semantic ui. The app has 3 pages:
 * list page: where all team members will be listed
 * add page: where new team member can be added
