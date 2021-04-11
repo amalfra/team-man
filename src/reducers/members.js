@@ -1,5 +1,5 @@
 const members = (state = [], action) => {
-  const newState = [ ...state ];
+  const newState = [...state];
 
   switch (action.type) {
     case 'ADD':
