@@ -1,43 +1,42 @@
-var path = require('path');
-const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const outputPath = '/dist/';
+const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const outputPath = '/dist/'
 
 module.exports = {
   entry: './src/app',
   output: {
     path: path.join(__dirname, outputPath),
     filename: '[name].bundle.js',
-    publicPath: outputPath
+    publicPath: outputPath,
   },
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loaders: ["babel-loader"]
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader"
-        })
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.png|\.svg$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'url-loader'
+        loader: 'url-loader',
       }
-    ]
+    ],
   },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new ExtractTextPlugin("style.css")
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
   ]
-};
+}
