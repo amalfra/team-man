@@ -1,34 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { Redirect } from 'react-router';
 
 import AddScreen from '../screens/add';
 import { add as addAction } from '../actions/add'
 
 class AddComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    redirect: false,
+  };
 
-    this.submitHandler = this.submitHandler.bind(this);
-  }
-
-  submitHandler(values, dispatch) {
+  submitHandler = (values) => {
     this.props.dispatchAddAction(values);
-    return this.props.push('/');
-  }
+    this.setState({ redirect: true });
+  };
 
   render() {
-    return (
-      <AddScreen onSubmit={this.submitHandler} />
-    );
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to='/'/>;
+    }
+
+    return <AddScreen onSubmit={this.submitHandler} />;
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatchAddAction: (member) => dispatch(addAction(member)),
-    push: (path) => dispatch(push(path))
-  }
-};
+const mapDispatchToProps = (dispatch) => ({
+  dispatchAddAction: (member) => dispatch(addAction(member)),
+});
 
 export default connect(null, mapDispatchToProps)(AddComponent);

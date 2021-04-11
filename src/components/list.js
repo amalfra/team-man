@@ -3,16 +3,12 @@ import { connect } from 'react-redux';
 
 import ListScreen from '../screens/list';
 
-const ListComponent = ({members}) => {
-  return (
-    <ListScreen members={members} />
-  );
-};
+const ListComponent = ({members}) => (
+  <ListScreen members={members} />
+);
 
-const mapStateToProps = (state) => {
-  return {
-    members : state.members
-  };
-};
+const mapStateToProps = ({ members }) => ({
+  members,
+});
 
 export default connect(mapStateToProps)(ListComponent);

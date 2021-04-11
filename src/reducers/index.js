@@ -4,10 +4,8 @@ import { reducer as formReducer } from 'redux-form';
 
 import members from './members';
 
-const combinedReducer = combineReducers({
+export default combineReducers({
   members,
   routing: routerReducer,
   form: formReducer
 });
-
-export default combinedReducer;
