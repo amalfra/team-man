@@ -27,7 +27,7 @@ export const validate = (values) => {
   return errors
 };
 
-export const renderField = ({ input, placeholder, type, label, meta: {touched, error }}) => (
+export const renderField = ({ input, placeholder, type, label, meta: { touched, error }}) => (
   <div>
     { 
       type == 'radio' ? (
@@ -39,6 +39,6 @@ export const renderField = ({ input, placeholder, type, label, meta: {touched, e
         <input {...input} placeholder={placeholder} type={type} />
       )
     }
-    {touched && ((error && <span className="text-danger">{error}</span>))}
+    {touched && error && <span className="text-danger">{error}</span>}
   </div>
 );
