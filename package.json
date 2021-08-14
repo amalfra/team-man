@@ -5,7 +5,8 @@
   "description": "A simple frontend ​only team-member ​management ​application ​that ​allows ​the user ​to ​view, ​edit, ​add ​and ​delete ​team ​members",
   "license": "MIT",
   "engines": {
-    "node": ">=10.12.0"
+    "npm": ">=7.19.1",
+    "node": ">=12.22.4"
   },
   "repository": {
     "type": "git",
