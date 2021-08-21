@@ -1,12 +1,12 @@
 {
   "name": "team-man",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "Amal Francis <amalfra@gmail.com>",
   "description": "A simple frontend ​only team-member ​management ​application ​that ​allows ​the user ​to ​view, ​edit, ​add ​and ​delete ​team ​members",
   "license": "MIT",
   "engines": {
     "npm": ">=7.19.1",
-    "node": ">=12.22.4"
+    "node": ">=14.17.0"
   },
   "repository": {
     "type": "git",
@@ -59,14 +59,14 @@
     "mini-css-extract-plugin": "^1.4.1",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.31.2",
-    "webpack-cli": "^4.6.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
   },
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
     "test": "jest",
-    "start:dev": "webpack serve --config webpack.config.development.js",
-    "start:prod": "webpack serve --config webpack.config.production.js"
+    "start:dev": "webpack serve --config ./webpack.config.development.js",
+    "start:prod": "webpack serve --config ./webpack.config.production.js"
   }
 }

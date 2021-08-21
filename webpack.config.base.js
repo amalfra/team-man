@@ -1,14 +1,21 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const outputPath = '/dist/';
+const outputPath = 'dist';
 
 module.exports = {
   entry: './src/app',
   output: {
     path: path.join(__dirname, outputPath),
     filename: '[name].bundle.js',
-    publicPath: outputPath,
+  },
+  devServer: {
+    devMiddleware: {
+      writeToDisk: true,
+    },
+    static: {
+      directory: path.join(__dirname, outputPath),
+    },
   },
   module: {
     rules: [
