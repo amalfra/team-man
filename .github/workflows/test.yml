@@ -1,0 +1,13 @@
+on: [push, pull_request]
+name: Test
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.17
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.17
+      - run: npm ci
+      - run: npm test
