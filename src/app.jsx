@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import Router from './router';
 import combinedReducer from './reducers';
 
-import 'semantic-ui-css/semantic.min.css';
 import './app.css';
 
 const store = createStore(combinedReducer)
