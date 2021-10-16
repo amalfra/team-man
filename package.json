@@ -61,6 +61,9 @@
     "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^4.3.1"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",
     "test": "jest",
