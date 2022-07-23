@@ -1,3 +1,4 @@
+// eslint-disable-next-line default-param-last
 const members = (state = [], action) => {
   const newState = [...state];
 

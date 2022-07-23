@@ -67,7 +67,7 @@
     "testEnvironment": "jsdom"
   },
   "scripts": {
-    "pretest": "eslint",
+    "pretest": "eslint .",
     "test": "jest",
     "start:dev": "webpack serve --config ./webpack.config.development.js",
     "start:prod": "webpack serve --config ./webpack.config.production.js"
