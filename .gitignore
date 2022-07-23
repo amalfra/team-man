@@ -1,4 +1,4 @@
 node_modules
-dist/main.bundle.js
-dist/style.css
-dist/main.bundle.js.LICENSE.txt
+dist/
+!dist/index.html
+!dist/assets

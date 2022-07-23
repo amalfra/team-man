@@ -2,7 +2,7 @@ Team man
 ========
 ![Build Status](https://github.com/amalfra/team-man/actions/workflows/test.yml/badge.svg?branch=main)
 
-​A ​simple frontend ​only ​team-member ​management ​application in reactjs built using redux, redux-form and semantic ui. The app has 3 pages:
+​A ​simple frontend ​only ​team-member ​management ​application in reactjs built using redux, react-hook-form and semantic ui. The app has 3 pages:
 * list page: where all team members will be listed
 * add page: where new team member can be added
 * edit page: where existing team member details can be modified

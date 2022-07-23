@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { Navigate } from 'react-router-dom';
 
 import AddScreen from '../screens/add';
 import addAction from '../actions/add';
@@ -18,7 +18,7 @@ class AddComponent extends React.Component {
   render() {
     const { redirect } = this.state;
     if (redirect) {
-      return <Redirect to='/'/>;
+      return <Navigate to='/'/>;
     }
 
     return <AddScreen onSubmit={this.submitHandler} />;

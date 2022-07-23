@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import ListComponent from './components/list';
 import AddComponent from './components/add';
@@ -7,11 +7,11 @@ import EditComponent from './components/edit';
 
 const Router = () => (
   <BrowserRouter>
-    <Switch>
-      <Route path='/add' component={AddComponent} />
-      <Route path='/edit/:id' component={EditComponent} />
-      <Route path='/' component={ListComponent} />
-    </Switch>
+    <Routes>
+      <Route path='/add' element={<AddComponent />} />
+      <Route path='/edit/:id' element={<EditComponent />} />
+      <Route path='/' element={<ListComponent />} />
+    </Routes>
   </BrowserRouter>
 );
 

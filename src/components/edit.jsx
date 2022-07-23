@@ -1,41 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { Navigate, useParams } from 'react-router-dom';
 
 import EditScreen from '../screens/edit';
 import removeAction from '../actions/remove';
 import editAction from '../actions/edit';
 
-class EditComponent extends React.Component {
-  state = {
-    redirect: false,
+const EditComponent = ({ members, dispatchRemoveAction, dispatchEditAction }) => {
+  const [redirect, setRedirect] = useState(false);
+  const { id } = useParams();
+
+  const deleteHandler = () => {
+    dispatchRemoveAction(id);
+    setRedirect(true);
   };
 
-  deleteHandler = () => {
-    this.props.dispatchRemoveAction(this.props.id);
-    this.setState({ redirect: true });
+  const submitHandler = (values) => {
+    dispatchEditAction(id, values);
+    setRedirect(true);
   };
 
-  submitHandler = (values) => {
-    this.props.dispatchEditAction(this.props.id, values);
-    this.setState({ redirect: true });
-  };
-
-  render() {
-    const { redirect } = this.state;
-    if (redirect) {
-      return <Redirect to='/'/>;
-    }
-
-    return (
-      <EditScreen member={this.props.member} handleDelete={this.deleteHandler} onSubmit={this.submitHandler} />
-    );
+  if (redirect) {
+    return <Navigate to='/'/>;
   }
+
+  return (
+    <EditScreen member={members[id]} handleDelete={deleteHandler} onSubmit={submitHandler} />
+  );
 };
 
-const mapStateToProps = (state, { match: { params: { id }}}) => ({
-  member: state.members[id],
-  id,
+const mapStateToProps = (state) => ({
+  members: state.members,
 });
 
 const mapDispatchToProps = (dispatch) => ({

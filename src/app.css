@@ -9,3 +9,11 @@ body {
 .text-danger {
   color: red;
 }
+
+.clearfix {
+  clear: both;
+}
+
+[class*="left floated"] {
+  float: left;
+}
