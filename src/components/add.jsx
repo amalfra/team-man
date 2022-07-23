@@ -1,28 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 import AddScreen from '../screens/add';
 import addAction from '../actions/add';
 
-class AddComponent extends React.Component {
-  state = {
-    redirect: false,
+const AddComponent = ({ dispatchAddAction }) => {
+  const [redirect, setRedirect] = useState(false);
+
+  const submitHandler = (values) => {
+    dispatchAddAction(values);
+    setRedirect(true);
   };
 
-  submitHandler = (values) => {
-    this.props.dispatchAddAction(values);
-    this.setState({ redirect: true });
-  };
-
-  render() {
-    const { redirect } = this.state;
-    if (redirect) {
-      return <Navigate to='/'/>;
-    }
-
-    return <AddScreen onSubmit={this.submitHandler} />;
+  if (redirect) {
+    return <Navigate to='/'/>;
   }
+  return <AddScreen onSubmit={submitHandler} />;
 };
 
 const mapDispatchToProps = (dispatch) => ({
