@@ -1,6 +1,6 @@
 {
   "name": "team-man",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "author": "Amal Francis <amalfra@gmail.com>",
   "description": "A simple frontend ​only team-member ​management ​application ​that ​allows ​the user ​to ​view, ​edit, ​add ​and ​delete ​team ​members",
   "license": "MIT",
