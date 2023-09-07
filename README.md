@@ -1,6 +1,7 @@
 Team man
 ========
 ![Build Status](https://github.com/amalfra/team-man/actions/workflows/test.yml/badge.svg?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/amalfra/team-man/badge.svg?branch=main)](https://coveralls.io/github/amalfra/team-man?branch=main)
 
 ​A ​simple frontend ​only ​team-member ​management ​application in reactjs built using redux, react-hook-form and semantic ui. The app has 3 pages:
 * list page: where all team members will be listed
