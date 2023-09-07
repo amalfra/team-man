@@ -11,3 +11,5 @@ jobs:
           node-version: 14.17
       - run: npm ci
       - run: npm test
+      - name: Coveralls
+        uses: coverallsapp/github-action@master

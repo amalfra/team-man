@@ -68,7 +68,7 @@
   },
   "scripts": {
     "pretest": "eslint .",
-    "test": "jest",
+    "test": "jest --coverage",
     "start:dev": "webpack serve --config ./webpack.config.development.js",
     "start:prod": "webpack serve --config ./webpack.config.production.js"
   }
