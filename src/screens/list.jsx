@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Grid, Segment, Header, Divider, Button, Icon, Item, List, Message } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
 const ListScreen = ({ members }) => (
   <section id="list-screen">
@@ -52,5 +53,11 @@ const ListScreen = ({ members }) => (
     </Grid>
   </section>
 );
+
+ListScreen.propTypes = {
+  members: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default ListScreen;

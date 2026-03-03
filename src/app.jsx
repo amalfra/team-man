@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -7,12 +6,12 @@ import { Provider } from 'react-redux';
 import Router from './router';
 import combinedReducer from './reducers';
 
+import 'semantic-ui-css/semantic.min.css';
 import './app.css';
 
-const store = createStore(combinedReducer)
+const store = createStore(combinedReducer);
 
-const container = document.getElementById('app');
-const root = createRoot(container); 
+const root = createRoot(document.getElementById('root'));
 
 root.render(
   <Provider store={store}>

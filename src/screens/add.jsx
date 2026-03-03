@@ -5,10 +5,11 @@ import {
 } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import PropTypes from 'prop-types';
 
 import validations from './validations';
 
-export default ({ onSubmit }) => {
+const Add = ({ onSubmit }) => {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(validations),
   });
@@ -57,7 +58,7 @@ export default ({ onSubmit }) => {
                   <List.Item>
                     <List.Content>
                       <label>
-                        <div className="left floated">Regular - Can't delete members</div>
+                        <div className="left floated">Regular - Can&apos;t delete members</div>
                         <input {...register('role')} placeholder="Phone" type="radio" value="2" className="right floated" />
                       </label>
                       {errors.role?.message && <div className="text-danger clearfix left floated">{errors.role.message}</div>}
@@ -84,3 +85,9 @@ export default ({ onSubmit }) => {
     </section>
   );
 };
+
+Add.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export default Add;

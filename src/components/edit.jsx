@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Navigate, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import EditScreen from '../screens/edit';
 import removeAction from '../actions/remove';
@@ -27,6 +28,14 @@ const EditComponent = ({ members, dispatchRemoveAction, dispatchEditAction }) =>
   return (
     <EditScreen member={members[id]} handleDelete={deleteHandler} onSubmit={submitHandler} />
   );
+};
+
+EditComponent.propTypes = {
+  members: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+  dispatchRemoveAction: PropTypes.func.isRequired,
+  dispatchEditAction: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({

@@ -1,5 +1,21 @@
-const config = require('./webpack.config.base');
+import { merge } from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-config.mode = 'production';
+import config from './webpack.config.base.js';
 
-module.exports = config;
+export default merge(config, {
+  mode: 'production',
+  output: {
+    clean: true,
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+      },
+    }),
+  ],
+});

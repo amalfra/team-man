@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import AddScreen from '../screens/add';
 import addAction from '../actions/add';
@@ -17,6 +18,10 @@ const AddComponent = ({ dispatchAddAction }) => {
     return <Navigate to='/'/>;
   }
   return <AddScreen onSubmit={submitHandler} />;
+};
+
+AddComponent.propTypes = {
+  dispatchAddAction: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
