@@ -8,9 +8,9 @@ Team man
 * add page: where new team member can be added
 * edit page: where existing team member details can be modified
 
-![list-page](https://raw.githubusercontent.com/amalfra/team-man/main/.images/list-page.png)
-![add-page](https://raw.githubusercontent.com/amalfra/team-man/main/.images/add-page.png)
-![edit-page](https://raw.githubusercontent.com/amalfra/team-man/main/.images/edit-page.png)
+![list-page](https://raw.githubusercontent.com/amalfra/team-man/main/.images/list-page.png?version=1)
+![add-page](https://raw.githubusercontent.com/amalfra/team-man/main/.images/add-page.png?version=1)
+![edit-page](https://raw.githubusercontent.com/amalfra/team-man/main/.images/edit-page.png?version=1)
 
 ## Usage
 * First run ```npm i``` to setup required dependencies.
