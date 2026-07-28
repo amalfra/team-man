@@ -2,17 +2,20 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router';
+import { MemoryRouter } from 'react-router-dom';
+import { MantineProvider } from '@mantine/core';
 
-import Edit from "./edit";
-import reducers from "../reducers";
+import Edit from './edit';
+import reducers from '../reducers';
 
 const store = createStore(reducers, {});
 
 const Wrapped = (props = {}) => (
   <MemoryRouter>
     <Provider store={store}>
-      <Edit {...props} />
+      <MantineProvider>
+        <Edit {...props} />
+      </MantineProvider>
     </Provider>
   </MemoryRouter>
 );
